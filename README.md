@@ -69,6 +69,11 @@ mixin 管理通用代码
 display:inline-block: height = parent height
 会撑开父元素
 搜索框中添加iconfont对垂直居中有影响 
-img有抖动 缓慢出现
+img有抖动 缓慢出现 => 计算宽高比例 图片占位
+height:0;
+overflow:hidden;
+padding-bottom:25.4%
 
-
+8-7 使用flex布局实现图标列表布局
+inline-block+margin auto 无效
+margin的负数数值
