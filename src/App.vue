@@ -90,6 +90,90 @@
     <div class="gap">
 
     </div>
+    <div class="nearby">
+      <h3 class="nearby-title">附近店铺</h3>
+      <div class="nearby-item">
+        <img src="http://www.dell-lee.com/imgs/vue3/near.png"
+          alt=""
+          class="nearby-item-img">
+        <div class="nearby-content">
+          <div class="nearby-content-title">沃尔玛</div>
+          <div class="nearby-content-tags">
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+          </div>
+          <p class="nearby-content-highlight">VIP尊享满89减少4元</p>
+        </div>
+
+      </div>
+
+      <div class="nearby-item">
+        <img src="http://www.dell-lee.com/imgs/vue3/near.png"
+          alt=""
+          class="nearby-item-img">
+        <div class="nearby-content">
+          <div class="nearby-content-title">沃尔玛</div>
+          <div class="nearby-content-tags">
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+          </div>
+          <p class="nearby-content-highlight">VIP尊享满89减少4元</p>
+        </div>
+
+      </div>
+
+      <div class="nearby-item">
+        <img src="http://www.dell-lee.com/imgs/vue3/near.png"
+          alt=""
+          class="nearby-item-img">
+        <div class="nearby-content">
+          <div class="nearby-content-title">沃尔玛</div>
+          <div class="nearby-content-tags">
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+          </div>
+          <p class="nearby-content-highlight">VIP尊享满89减少4元</p>
+        </div>
+
+      </div>
+
+      <var>
+        <div class="nearby-item">
+        <img src="http://www.dell-lee.com/imgs/vue3/near.png"
+          alt=""
+          class="nearby-item-img">
+        <div class="nearby-content">
+          <div class="nearby-content-title">沃尔玛</div>
+          <div class="nearby-content-tags">
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+          </div>
+          <p class="nearby-content-highlight">VIP尊享满89减少4元</p>
+        </div>
+
+      </div>
+
+      <div class="nearby-item">
+        <img src="http://www.dell-lee.com/imgs/vue3/near.png"
+          alt=""
+          class="nearby-item-img">
+        <div class="nearby-content">
+          <div class="nearby-content-title">沃尔玛</div>
+          <div class="nearby-content-tags">
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+            <span class="nearby-content-tag">月售出1万</span>
+          </div>
+          <p class="nearby-content-highlight">VIP尊享满89减少4元</p>
+        </div>
+
+      </div>
+      </var>
+    </div>
   </div>
 
   <div class="docker">
@@ -117,12 +201,56 @@
 @import "./styles/variables.scss";
 @import "./styles/mixins.scss";
 .wrapper {
+  overflow-y: auto;
   position: absolute;
   left: 0;
   top: 0;
   bottom: 0.5rem;
   right: 0;
   padding: 0 0.18rem;
+  .nearby{
+    .nearby-title{
+      margin:.16rem 0 .02rem 0;
+      font-size: .18rem;
+    }
+    .nearby-item{
+      display: flex;
+      padding-top:0.12rem;
+      .nearby-item-img{
+        width:.56rem;
+        height:.56rem;
+        margin-right:0.16rem;
+      }
+      .nearby-content{
+        padding-bottom:.12rem;
+        flex:1;
+      border-bottom:1px solid #f1f1f1;
+
+        .nearby-content-title{
+          line-height: .22rem;
+          font-size: .16rem;
+          color:$content-font-color;
+        }
+        .nearby-content-tags{
+          margin-top:.12rem;
+          line-height: .18rem;
+          font-size:.13rem;
+          color:$content-font-color;
+          .nearby-content-tag{
+            margin-right:.16rem;
+
+          }
+        }
+        .nearby-content-highlight{
+          color:red;
+          line-height:.18rem;
+          font-size:.13rem;
+          margin:.08rem 0 0 0
+
+        }
+      }
+    }
+  }
   .icons {
     display: flex;
     flex-wrap: wrap;
@@ -190,7 +318,7 @@
 .gap {
   height: 0.1rem;
   background: $bg-color;
-  margin:0 -0.18rem;
+  margin: 0 -0.18rem;
 }
 .docker {
   color: $content-font-color;
