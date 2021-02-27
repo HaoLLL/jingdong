@@ -50,4 +50,19 @@ styles中index.scss文件
 @import './base.scss'
 @import './confont.scss'
 
+8-5 使用scss 阻止地址区域布局
+添加铃铛和方位标签
+父组件：relative
+子组件：absolute
+
+文字很长的时候: 
+overflow:hidden; 
+white-space:nowrap;
+text-overflow:ellipses
+
+字体都是#333
+$content-font-color:#333;
+
+mixin 管理通用代码
+
 
