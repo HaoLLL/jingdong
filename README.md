@@ -65,4 +65,10 @@ $content-font-color:#333;
 
 mixin 管理通用代码
 
+8-6 利用css技巧实现搜索以及banner布局区域布局
+display:inline-block: height = parent height
+会撑开父元素
+搜索框中添加iconfont对垂直居中有影响 
+img有抖动 缓慢出现
+
 
