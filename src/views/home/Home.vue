@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="wrapper">
-      <StaticPart />
-      <Nearby />
-    </div>
-    <Docker />
+  <div class="wrapper">
+    <StaticPart />
+    <Nearby />
   </div>
+  <Docker />
 
 </template>
 <script>
@@ -22,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 .wrapper {
