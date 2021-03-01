@@ -25,6 +25,24 @@ const routes = [
         next()
       }
     }
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    // component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: Login,
+    beforeEnter(to, from, next) {
+      const isLogin = localStorage.isLogin
+      // 已经登录了 再访问登录页面 跳转到home
+      if (isLogin) {
+        next({ name: 'Home' })
+      } else {
+        next()
+      }
+    }
   }
 ]
 
