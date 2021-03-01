@@ -13,14 +13,26 @@
         type="text"
         placeholder="请输入密码">
     </div>
-    <div class="wrapper-login-button">登录</div>
+    <div class="wrapper-login-button"
+      @click="handleLogin">登录</div>
     <div class="wrapper-login-link">立即注册</div>
   </div>
 
 </template>
 <script>
+import { useRouter } from 'vue-router'
 export default {
-  name: 'Login'
+  name: 'Login',
+  setup() {
+    const router = useRouter()
+    const handleLogin = () => {
+      localStorage.isLogin = true
+      router.push({ name: 'Home' })
+    }
+    return {
+      handleLogin
+    }
+  }
 }
 </script>
 <style scoped lang="scss">
@@ -61,15 +73,14 @@ export default {
     color: #fff;
     margin: 0.32rem 0.4rem 0.16rem 0.4rem;
     border-radius: 4px;
-    font-size:.16rem;
-    line-height: .48rem;
-    text-align:center;
-  }
-  .wrapper-login-link{
-    color:rgba(0,0,0,0.5);
+    font-size: 0.16rem;
+    line-height: 0.48rem;
     text-align: center;
-    font-size: .14rem;
-
+  }
+  .wrapper-login-link {
+    color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 0.14rem;
   }
 }
 </style>
