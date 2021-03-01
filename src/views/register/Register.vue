@@ -13,10 +13,14 @@
         type="password"
         placeholder="请输入密码">
     </div>
-    <div class="wrapper-login-button"
-      @click="handleLogin">登录</div>
-    <div class="wrapper-login-link"
-      @click="handleRegisterClick">立即注册</div>
+    <div class="wrapper-input">
+      <input class="wrapper-input-content"
+        type="password"
+        placeholder="确认密码">
+    </div>
+    <div class="wrapper-register-button">注册</div>
+    <div class="wrapper-register-link"
+      @click="handleLoginClick">已有账号，去登陆</div>
   </div>
 
 </template>
@@ -30,12 +34,12 @@ export default {
       localStorage.isLogin = true
       router.push({ name: 'Home' })
     }
-    const handleRegisterClick = () => {
-      router.push({ name: 'Register' })
+    const handleLoginClick = () => {
+      router.push({ name: 'Login' })
     }
     return {
       handleLogin,
-      handleRegisterClick
+      handleLoginClick
     }
   }
 }
@@ -72,7 +76,7 @@ export default {
       }
     }
   }
-  .wrapper-login-button {
+  .wrapper-register-button {
     background: #0091ff;
     box-shadow: 0 0.04rem 0.08rem 0 rgba(0, 145, 255, 0.32);
     color: #fff;
@@ -82,7 +86,7 @@ export default {
     line-height: 0.48rem;
     text-align: center;
   }
-  .wrapper-login-link {
+  .wrapper-register-link {
     color: rgba(0, 0, 0, 0.5);
     text-align: center;
     font-size: 0.14rem;
