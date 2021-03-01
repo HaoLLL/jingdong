@@ -6,11 +6,13 @@
     <div class="wrapper-input">
       <input class="wrapper-input-content"
         type="text"
-        placeholder="请输入手机号">
+        v-model="data.username"
+        placeholder="请输入用户名">
     </div>
     <div class="wrapper-input">
       <input class="wrapper-input-content"
         type="password"
+        v-model="data.password"
         placeholder="请输入密码">
     </div>
     <div class="wrapper-login-button"
@@ -22,20 +24,42 @@
 </template>
 <script>
 import { useRouter } from 'vue-router'
+// import axios from 'axios'
+import { reactive } from 'vue'
+import { post } from '../../utils/request'
+// axios.defaults.headers.post['Content-Type'] = 'application/json'
 export default {
   name: 'Login',
   setup() {
     const router = useRouter()
-    const handleLogin = () => {
-      localStorage.isLogin = true
-      router.push({ name: 'Home' })
+    const data = reactive({
+      username: '',
+      password: ''
+    })
+    const handleLogin = async () => {
+      try {
+        const result = await post('api/user/login', {
+          username: data.username,
+          password: data.password
+        })
+        console.log(result)
+        if (result?.errno === 0) {
+          localStorage.isLogin = true
+          router.push({ name: 'Home' })
+        } else {
+          alert('fail')
+        }
+      } catch (e) {
+        alert('request fail')
+      }
     }
     const handleRegisterClick = () => {
       router.push({ name: 'Register' })
     }
     return {
       handleLogin,
-      handleRegisterClick
+      handleRegisterClick,
+      data
     }
   }
 }
