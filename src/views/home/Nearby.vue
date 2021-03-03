@@ -22,9 +22,18 @@
 </template>
 <script>
 import {ref} from 'vue'
+import { get } from '../../utils/request'
 export default {
   setup() {
     const nearbyList=ref([]);
+    const getNearbyList = async()=>{
+      const result= await get('/api/shop/hot-list')
+      if(result?.errno === 0){
+        // localStorage.
+      }else{
+
+      }
+    };
     const nearbyList = [
       {
         id: 1,
