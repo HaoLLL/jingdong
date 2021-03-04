@@ -2,54 +2,42 @@
   <div class="nearby">
     <h3 class="nearby-title">附近店铺</h3>
     <div class="nearby-item"
-      :key="item.id"
+      :key="item._id"
       v-for="item in nearbyList">
       <img :src="item.imgUrl"
         alt=""
         class="nearby-item-img">
       <div class="nearby-content">
-        <div class="nearby-content-title">{{item.title}}</div>
+        <div class="nearby-content-title">{{item.name}}</div>
         <div class="nearby-content-tags">
-          <span v-for="(innerItem,index) in item.tags"
-            :key="index"
-            class="nearby-content-tag">{{innerItem}}</span>
+          <span class="nearby-content-tag">月售:{{item.sales}}</span>
+          <span class="nearby-content-tag">起送:{{item.expressLimit}}</span>
+          <span class="nearby-content-tag">基础运费:{{item.expressPrice}}</span>
         </div>
-        <p class="nearby-content-highlight">{{item.desc}}</p>
+        <p class="nearby-content-highlight">{{item.slogan}}</p>
       </div>
     </div>
 
   </div>
 </template>
 <script>
-import {ref} from 'vue'
+import { ref } from 'vue'
 import { get } from '../../utils/request'
+
+const userNearbyListEffect = () => {
+  const nearbyList = ref([])
+  const getNearbyList = async () => {
+    const result = await get('/api/shop/hot-list')
+    if (result?.errno === 0 && result?.data?.length) {
+      nearbyList.value = result.data
+    }
+  }
+  return { nearbyList, getNearbyList }
+}
 export default {
   setup() {
-    const nearbyList=ref([]);
-    const getNearbyList = async()=>{
-      const result= await get('/api/shop/hot-list')
-      if(result?.errno === 0){
-        // localStorage.
-      }else{
-
-      }
-    };
-    const nearbyList = [
-      {
-        id: 1,
-        title: '沃尔玛1',
-        imgUrl: 'http://www.dell-lee.com/imgs/vue3/near.png',
-        tags: ['月售出1万', '起送0', '基于运费'],
-        desc: 'VIP尊享满89减少4元'
-      },
-      {
-        id: 2,
-        title: '沃尔玛2',
-        imgUrl: 'http://www.dell-lee.com/imgs/vue3/near.png',
-        tags: ['月售出1万', '起送0', '基于运费'],
-        desc: 'VIP尊享满89减少4元'
-      }
-    ]
+    const { nearbyList, getNearbyList } = userNearbyListEffect()
+    getNearbyList()
     return {
       nearbyList
     }
