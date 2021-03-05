@@ -1,13 +1,15 @@
 <template>
   <div class="nearby">
     <h3 class="nearby-title">附近店铺</h3>
-    <ShopInfo />
+    <ShopInfo v-for="item in nearbyList"
+      :key="item._id"
+      :item="item" />
   </div>
 </template>
 <script>
 import { ref } from 'vue'
 import { get } from '../../utils/request'
-import ShopInfo from '../shop/ShopInfo'
+import ShopInfo from '../../components/ShopInfo'
 
 const userNearbyListEffect = () => {
   const nearbyList = ref([])
